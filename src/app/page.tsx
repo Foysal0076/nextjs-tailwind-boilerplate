@@ -1,7 +1,11 @@
-export default function Home() {
+import { HomeHero } from '@/components/Home'
+
+const HomePage = () => {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <div>HOME</div>
-    </main>
+    <div>
+      <HomeHero />
+    </div>
   )
 }
+
+export default HomePage

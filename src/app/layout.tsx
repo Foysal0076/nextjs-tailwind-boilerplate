@@ -1,6 +1,10 @@
-import './globals.css'
+import '@/styles/globals.css'
+import '@/styles/globals.scss'
 
 import { Open_Sans } from 'next/font/google'
+
+import { Footer } from '@/components/Footer'
+import { Navbar } from '@/components/Navbar'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -17,8 +21,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <link
+        rel='icon'
+        type='image/ico'
+        sizes='32x32'
+        href='/assets/favicons/favicon.ico'
+      />
       <body className={openSans.className} suppressHydrationWarning>
-        {children}
+        <div className='flex min-h-screen flex-col justify-between'>
+          <div>
+            <Navbar />
+            <main>{children}</main>
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   )
