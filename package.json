@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:turbo": "next dev --turbo --show-all",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +13,8 @@
     "prepare": "husky install",
     "test:watch": "jest --watch",
     "test": "jest --ci",
-    "test:coverage": "jest --coverage --watchAll collectCoverageFrom='[\"src/components/Common/**/*.{tsx}\"]' --collectCoverage"
+    "test:coverage": "jest --coverage --watchAll collectCoverageFrom='[\"src/components/Common/**/*.{tsx}\"]' --collectCoverage",
+    "format":"prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\""
   },
   "engines": {
     "node": ">=18.15.0"
