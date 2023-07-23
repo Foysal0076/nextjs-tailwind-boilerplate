@@ -33,7 +33,7 @@ export default function RootLayout({
         sizes='32x32'
         href='/assets/favicons/favicon.ico'
       />
-      <body className={openSans.variable} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <div className='flex min-h-screen flex-col justify-between'>
           <div>
             <Navbar />
