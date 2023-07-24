@@ -34,7 +34,7 @@ export default function RootLayout({
         href='/assets/favicons/favicon.ico'
       />
       <body suppressHydrationWarning>
-        <div className='flex min-h-screen flex-col justify-between'>
+        <div className='flex min-h-screen flex-col justify-between bg-neutral-0 dark:bg-neutral-900'>
           <div>
             <Navbar />
             <main>{children}</main>

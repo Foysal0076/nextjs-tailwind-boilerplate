@@ -124,25 +124,29 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
+  body {
+    @apply text-neutral-600 dark:text-neutral-50;
+  }
+
   html {
     @apply scroll-smooth;
   }
 
   h1 {
-    @apply text-display-sm font-bold text-neutral-900 md:text-display-md xl:text-display-2xl;
+    @apply text-display-sm font-bold text-neutral-900 dark:text-neutral-10 md:text-display-md xl:text-display-2xl;
   }
 
   h2 {
-    @apply text-display-xs font-bold text-neutral-900 md:text-display-sm xl:text-display-lg;
+    @apply text-display-xs font-bold text-neutral-900 dark:text-neutral-10 md:text-display-sm xl:text-display-lg;
   }
 
   h3 {
-    @apply text-lg font-bold text-neutral-900 md:text-xl;
+    @apply text-lg font-bold text-neutral-900 dark:text-neutral-10 md:text-xl;
   }
 
   h4,
   h5,
   h6 {
-    @apply text-neutral-900;
+    @apply text-neutral-900 dark:text-neutral-10;
   }
 }
