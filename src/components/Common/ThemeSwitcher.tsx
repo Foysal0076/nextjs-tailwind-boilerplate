@@ -41,15 +41,15 @@ const ThemeSwitcher = () => {
       id='theme-toggle'
       type='button'
       onClick={toggleTheme}
-      className='text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5'>
+      className='rounded-lg p-1.5 text-sm hover:bg-primary-100 focus:outline-none focus:ring-4 focus:ring-primary-200 dark:hover:bg-primary-700 dark:focus:ring-primary-500/50'>
       <ToggleDarkIcon
-        className={clsx(`w-6 h-6 text-primary-900`, {
+        className={clsx(`h-6 w-6 text-primary-900`, {
           hidden: theme === 'dark',
           block: theme === 'light',
         })}
       />
       <ToggleLightIcon
-        className={clsx(`w-6 h-6 text-warning-500`, {
+        className={clsx(`h-6 w-6 text-warning-500`, {
           hidden: theme === 'light',
           block: theme === 'dark',
         })}

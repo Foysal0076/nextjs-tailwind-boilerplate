@@ -6,9 +6,9 @@ import { Open_Sans } from 'next/font/google'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 
+// eslint-disable-next-line no-unused-vars
 const openSans = Open_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-open-sans',
   display: 'swap',
   fallback: ['Poppins', 'sans-serif'],
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <link
         rel='icon'
         type='image/ico'
