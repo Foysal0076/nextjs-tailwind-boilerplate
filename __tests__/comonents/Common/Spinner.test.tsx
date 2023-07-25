@@ -1,10 +1,10 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
+
 import Spinner from '@/components/Common/Spinner'
 
 describe('Spinner', () => {
   it('matches the snapshot', () => {
-    const { container } = render(<Spinner className='text-info-800 h-4 w-4' />)
+    const { container } = render(<Spinner className='h-4 w-4 text-info-800' />)
     expect(container).toMatchSnapshot()
   })
 

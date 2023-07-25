@@ -1,9 +1,10 @@
-import { RefObject,useEffect } from 'react'
+import { RefObject, useEffect } from 'react'
 
 type Event = MouseEvent | TouchEvent
 
 export const useOutsideClick = <T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
+  // eslint-disable-next-line no-unused-vars
   handler: (event: Event) => void
 ) => {
   useEffect(() => {
