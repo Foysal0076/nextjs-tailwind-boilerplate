@@ -48,6 +48,12 @@ module.exports = {
       },
     },
     fontSize: {
+      xxs: [
+        '0.625rem',
+        {
+          lineHeight: '1.125rem',
+        },
+      ],
       xs: [
         '0.75rem',
         {
@@ -229,6 +235,48 @@ module.exports = {
         900: 'rgb(var(--colors-warning-warning-900) / <alpha-value>)',
       },
     },
+    boxShadow: {
+      xs: 'var(--shadow-xs-box-shadow)',
+      sm: 'var(--shadow-sm-box-shadow)',
+      md: 'var(--shadow-md-box-shadow)',
+      lg: 'var(--shadow-lg-box-shadow)',
+      xl: 'var(--shadow-xl-box-shadow)',
+      '2xl': 'var(--shadow-2-xl-box-shadow)',
+      '3xl': 'var(--shadow-3-xl-box-shadow)',
+      'right-box': 'var(--right-box-shadow)',
+      up: 'var(--up-box-shadow)',
+    },
+    blur: {
+      sm: 'var(--backgroundblur-sm-backdrop-filter)',
+      md: 'var(--backgroundblur-md-backdrop-filter)',
+      lg: 'var(--backgroundblur-lg-backdrop-filter)',
+      xl: 'var(--backgroundblur-xl-backdrop-filter)',
+    },
+    backgroundImage: {
+      'chevron-down': 'url(/assets/images/chevron-down.svg)',
+    },
+    backgroundPosition: {
+      'left-2': 'left .5rem center',
+      'left-4': 'left 1rem center',
+      'left-6': 'left 1.5rem center',
+      'left-8': 'left 2rem center',
+      'right-2': 'right .5rem center',
+      'right-4': 'right 1rem center',
+      'right-6': 'right 1.5rem center',
+      'right-8': 'right 2rem center',
+    },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      roman: 'upper-roman',
+      alpha: 'lower-alpha',
+    },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/container-queries'),
+  ],
 }

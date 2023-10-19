@@ -101,10 +101,10 @@
     --colors-warning-warning-800: 136 102 1; /* #886601 */
     --colors-warning-warning-900: 104 78 0; /* #684e00 */
 
-    --backgroundblur-xl-backdrop-filter: blur(20px);
-    --backgroundblur-lg-backdrop-filter: blur(12px);
-    --backgroundblur-md-backdrop-filter: blur(8px);
-    --backgroundblur-sm-backdrop-filter: blur(4px);
+    --backgroundblur-xl-backdrop-filter: 20px;
+    --backgroundblur-lg-backdrop-filter: 12px;
+    --backgroundblur-md-backdrop-filter: 8px;
+    --backgroundblur-sm-backdrop-filter: 4px;
 
     --shadow-3-xl-box-shadow: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);
     --shadow-2-xl-box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
@@ -137,16 +137,33 @@
   }
 
   h2 {
-    @apply text-display-xs font-bold text-neutral-900 dark:text-neutral-10 md:text-display-sm xl:text-display-lg;
+    @apply text-display-xs font-bold text-neutral-900 md:text-display-sm xl:text-display-md;
   }
 
   h3 {
-    @apply text-lg font-bold text-neutral-900 dark:text-neutral-10 md:text-xl;
+    @apply text-lg font-bold text-neutral-900 md:text-xl;
   }
 
   h4,
   h5,
   h6 {
     @apply text-neutral-900 dark:text-neutral-10;
+  }
+  p,
+  span {
+    @apply text-neutral-600 dark:text-neutral-50;
+  }
+}
+
+@layer components {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

@@ -1,6 +1,4 @@
-'use client'
 export const HomeHero = () => {
-  console.log('should be removed in production')
   return (
     <div className='container'>
       <h1>This is H1</h1>
