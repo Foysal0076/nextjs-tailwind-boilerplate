@@ -1,1 +1,1 @@
-export * from './utilityHelpers'
+export * from './utility.helper'
