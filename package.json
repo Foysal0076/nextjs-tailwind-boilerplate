@@ -13,6 +13,7 @@
     "prepare": "husky install && bash -c 'chmod ug+x .husky/*'",
     "test:watch": "jest --watch",
     "test": "jest --ci",
+    "test:update:snapshot": "jest --updateSnapshot",
     "test:coverage": "jest --coverage --watchAll collectCoverageFrom='[\"src/components/Common/**/*.{tsx}\"]' --collectCoverage",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\""
   },
@@ -22,6 +23,7 @@
   "dependencies": {
     "clsx": "^1.2.1",
     "next": "14.0.1",
+    "next-auth": "^4.24.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.32.6"
