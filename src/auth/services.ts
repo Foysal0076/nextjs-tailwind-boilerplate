@@ -1,6 +1,6 @@
 const authenticateUser = (email: string, password: string) => {
-  if (email !== 'test@foy.com' && password !== 'Test1234') {
-    return null
+  if (email !== 'test@foy.com' || password !== 'Test1234') {
+    throw new Error('Invalid email or password')
   }
 
   const user = {

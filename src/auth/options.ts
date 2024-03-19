@@ -75,9 +75,9 @@ export const authOptions: NextAuthOptions = {
     // }
   },
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/auth/login',
     signOut: '/',
-    error: '/auth/signin', // Error code passed in query string as ?error=
+    error: '/auth/login', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify-request', // (used for check email message)
     newUser: '/auth/new-user', // New users will be directed here on first sign in (leave the property out if not of interest)
   },
@@ -117,21 +117,21 @@ export const authOptions: NextAuthOptions = {
      * @param  {object}  user      User object      (only available on sign in)
      * @param  {object}  account   Provider account (only available on sign in)
      * @param  {object}  profile   Provider profile (only available on sign in)
-     * @param  {boolean} isNewUser True if new user (only available on sign in)
+     * @param  {"signIn" | "signUp" | "update" | undefined} trigger Check why the jwt is invoked
      * @return {object}            JSON Web Token that will be saved
      */
-    async jwt({ token, account, profile, user }) {
+    async jwt({ token, account, profile, user, trigger }) {
       if (user) {
         const _user: any = user
         token.id = _user.id
         token.name = _user.name
         token.email = _user.email
-        token.accessToken = _user?.bearerToken ?? null
+        token.accessToken = _user?.token ?? null
       }
       // Persist the OAuth access_token and or the user id to the token right after signin
-      if (account) {
-        token.accessToken = account?.access_token ?? null
-        token.id = profile?.id ?? null
+      if (account?.access_token) {
+        token.accessToken = account.access_token
+        // token.id = profile?.id ?? null
       }
       return token
     },

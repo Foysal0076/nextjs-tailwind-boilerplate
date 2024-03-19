@@ -11,7 +11,7 @@ const DashboardHomePage = () => {
   const isLogged = session.status === 'authenticated'
   const isNotLoggedIn = session.status === 'unauthenticated'
   const user = session.data?.user
-  console.log(user)
+  console.log(session)
   if (isNotLoggedIn) return redirect('/')
 
   return (
