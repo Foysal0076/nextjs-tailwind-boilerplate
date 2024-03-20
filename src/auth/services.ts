@@ -1,17 +1,37 @@
+const jwt = require('jsonwebtoken')
+
+import { dummyUser } from './dummyData'
+
 const authenticateUser = (email: string, password: string) => {
-  if (email !== 'test@foy.com' || password !== 'Test1234') {
+  if (email !== dummyUser.email || password !== dummyUser.password) {
     throw new Error('Invalid email or password')
   }
 
-  const user = {
-    id: 1,
-    name: 'Foysal Ahmed',
-    email: 'test@foy.com',
-    token:
-      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTcwOTIwNzc5NCwiZXhwIjoxNzA5MjExMzk0fQ.nKg7XRa-2BdLAtA1uqOcQsKhMFxcrBoiDkD7FHTInCA',
-  }
+  const jsonwebtoken = jwt.sign(
+    {
+      id: dummyUser.id,
+      name: dummyUser.name,
+      email: dummyUser.email,
+      iat: Math.floor(Date.now() / 1000),
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: 5 * 60 }
+  )
 
-  return user
+  return {
+    id: dummyUser.id,
+    name: dummyUser.name,
+    email: dummyUser.email,
+    token: jsonwebtoken,
+  }
 }
 
-export const authService = { authenticateUser }
+//verify token
+const verifyToken = (token: string) => {
+  const bearerToken =
+    token.split(' ')[0] === 'Bearer' ? token.split(' ')[1] : token
+  const decoded = jwt.verify(bearerToken, process.env.JWT_SECRET)
+  return decoded
+}
+
+export const authService = { authenticateUser, verifyToken }

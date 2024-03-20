@@ -1,6 +1,6 @@
 'use client'
 
-import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 
 import Spinner from '@/components/Common/Spinner'
@@ -11,8 +11,8 @@ const DashboardHomePage = () => {
   const isLogged = session.status === 'authenticated'
   const isNotLoggedIn = session.status === 'unauthenticated'
   const user = session.data?.user
-  console.log(session)
-  if (isNotLoggedIn) return redirect('/')
+  // console.log(session)
+  // if (isNotLoggedIn) return redirect('/')
 
   return (
     <div className='py-20'>
@@ -28,6 +28,11 @@ const DashboardHomePage = () => {
           </h1>
         </div>
       )}
+      <div className='mt-10 flex justify-center'>
+        <Link href='/user' className='w-full text-center text-lg font-semibold'>
+          User Details
+        </Link>
+      </div>
     </div>
   )
 }
