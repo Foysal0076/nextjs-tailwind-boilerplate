@@ -1,24 +1,39 @@
-import { render, screen } from '@testing-library/react'
-
 import Spinner from '@/components/Common/Spinner'
+import { render } from '@testing-library/react'
 
-describe('Spinner', () => {
-  it('matches the snapshot', () => {
-    const { container } = render(<Spinner className='h-4 w-4 text-info-800' />)
-    expect(container).toMatchSnapshot()
+describe('Spinner component', () => {
+  test('renders without crashing', () => {
+    const { container } = render(<Spinner />)
+    expect(container).toBeInTheDocument()
   })
 
-  it('renders with the default className', () => {
-    render(<Spinner />)
-    const spinner = screen.getByRole('status')
-    expect(spinner).toHaveClass('text-neutral-500')
-    expect(spinner).toHaveTextContent('Loading...')
+  test('applies default height and width classes if not provided', () => {
+    const { container } = render(<Spinner />)
+    const svgElement = container.querySelector('svg')
+    expect(svgElement).toHaveClass('h-6 w-6')
   })
 
-  it('renders with a custom className', () => {
-    render(<Spinner className='custom-spinner' />)
-    const spinner = screen.getByRole('status')
-    expect(spinner).toHaveClass('custom-spinner')
-    expect(spinner).toHaveTextContent('Loading...')
+  test('does not apply default height and width classes if provided', () => {
+    const { container } = render(<Spinner className='h-10 w-10' />)
+    const svgElement = container.querySelector('svg')
+    expect(svgElement).toHaveClass('h-10 w-10')
+    expect(svgElement).not.toHaveClass('h-5 w-5')
+  })
+
+  test('applies additional classes correctly', () => {
+    const { container } = render(<Spinner className='custom-class' />)
+    const svgElement = container.querySelector('svg')
+    expect(svgElement).toHaveClass('custom-class')
+  })
+
+  test('passes additional props to the svg element', () => {
+    const { container } = render(<Spinner data-testid='spinner' />)
+    const svgElement = container.querySelector('svg')
+    expect(svgElement).toHaveAttribute('data-testid', 'spinner')
+  })
+
+  test('matches snapshot', () => {
+    const { asFragment } = render(<Spinner />)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,3 +1,5 @@
+import Spinner from '@/components/Common/Spinner'
+
 export const HomeHero = () => {
   return (
     <div className='container'>
@@ -13,6 +15,9 @@ export const HomeHero = () => {
       <span className='block font-bold'>I am a 700</span>
       <span className='block font-extrabold'>I am a 800</span>
       <span className='block font-black'>I am a 900</span>
+      <div className='my-8'>
+        <Spinner className='text-primary-500' />
+      </div>
     </div>
   )
 }

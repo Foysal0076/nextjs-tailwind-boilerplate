@@ -1,25 +1,23 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+# #!/usr/bin/env sh
+# . "$(dirname -- "$0")/_/husky.sh"
 
 export FORCE_COLOR=1
-yarn  lint-staged
-yarn check-types ||
+pnpm  lint-staged
+pnpm check-types ||
 (
   echo "❌❌❌ Type check failed ❌❌❌"
-  echo "⚠️ ⚠️ ⚠️ View the errors above to see what went wrong ⚠️ ⚠️ ⚠️"
   exit 1
 )
-yarn test ||
+pnpm test ||
 (
   echo "❌❌❌ Tests failed ❌❌❌"
-  echo "⚠️ ⚠️ ⚠️ View the errors above to see what went wrong ⚠️ ⚠️ ⚠️"
   exit 1
 )
 # If everyting passes... try to run a build
 echo '✅✅✅ Allright...Code looks good...✅✅✅'
 #echo '✅✅✅ Allright...Code looks good...Trying to build now...✅✅✅'
 
-#yarn build ||
+#pnpm build ||
 #(
 #  echo "❌❌❌ Build failed ❌❌❌"
 #  echo "⚠️ ⚠️ ⚠️ Next build failed: View the errors above to see what went wrong ⚠️ ⚠️ ⚠️"
