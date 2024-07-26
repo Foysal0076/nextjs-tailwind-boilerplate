@@ -1,17 +1,22 @@
 import '@/styles/globals.css'
 import '@/styles/globals.scss'
 
-import { Open_Sans } from 'next/font/google'
+import { Inter, Rubik } from 'next/font/google'
 
+import NextThemeProvider from '@/components/Common/NextThemeProvider'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 
 // eslint-disable-next-line no-unused-vars
-const openSans = Open_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-open-sans',
+  variable: '--font-inter',
   display: 'swap',
-  fallback: ['Poppins', 'sans-serif'],
+})
+const rubik = Rubik({
+  subsets: ['latin'],
+  variable: '--font-rubik',
+  display: 'swap',
 })
 
 export const metadata = {
@@ -26,21 +31,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html
+      lang='en'
+      suppressHydrationWarning
+      className={`${inter.variable} ${rubik.variable}`}>
       <link
         rel='icon'
         type='image/ico'
         sizes='32x32'
         href='/assets/favicons/favicon.ico'
       />
-      <body suppressHydrationWarning>
-        <div className='flex min-h-screen flex-col justify-between bg-neutral-0 dark:bg-neutral-900'>
-          <div>
-            <Navbar />
-            <main>{children}</main>
+      <body>
+        <NextThemeProvider>
+          <div className='flex min-h-screen flex-col justify-between bg-neutral-0'>
+            <div>
+              <Navbar />
+              <main>{children}</main>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        </NextThemeProvider>
       </body>
     </html>
   )

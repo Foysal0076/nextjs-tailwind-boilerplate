@@ -4,8 +4,9 @@ const Spinner = ({ className, ...props }: Props) => {
   //check if h and w is passed in className, if not add h-5 and w-5
   const hasHeightAndWidth =
     className?.includes('h-') && className?.includes('w-')
-
-  const classNames = `${className ?? ''} text-white -ml-1 mr-3 animate-spin ${
+  // contains text- and last 2 digit is number
+  const hasColorClass = className?.includes('text-') && /\d{2}$/.test(className)
+  const classNames = `${className ?? ''} ${hasColorClass ? '' : 'text-primary-500'} -ml-1 mr-3 animate-spin ${
     !hasHeightAndWidth ? 'h-6 w-6' : ''
   }`
 

@@ -20,6 +20,12 @@ describe('Spinner component', () => {
     expect(svgElement).not.toHaveClass('h-5 w-5')
   })
 
+  it('should add text-primary-500 class when className does not include text- and does not end with two digits', () => {
+    const { container } = render(<Spinner className='some-class' />)
+    const spinner = container.firstChild
+    expect(spinner).toHaveClass('text-primary-500')
+  })
+
   test('applies additional classes correctly', () => {
     const { container } = render(<Spinner className='custom-class' />)
     const svgElement = container.querySelector('svg')

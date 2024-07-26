@@ -2,9 +2,11 @@ import ThemeSwitcher from '@/components/Common/ThemeSwitcher'
 
 export const Navbar = () => {
   return (
-    <div className='bg-primary-0 border-neutral-500 py-4 shadow-sm dark:border-b dark:bg-info-900/20'>
+    <div className='bg-neutral-0 py-4 shadow-sm dark:border-b dark:border-b-neutral-30'>
       <div className='container'>
-        <ThemeSwitcher />
+        <div className='flex justify-end'>
+          <ThemeSwitcher />
+        </div>
       </div>
     </div>
   )

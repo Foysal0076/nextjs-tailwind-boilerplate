@@ -1,57 +1,42 @@
 'use client'
 
 import clsx from 'clsx'
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 import { ToggleDarkIcon, ToggleLightIcon } from '@/components/Common/Icons'
-import { LOCAL_STORAGE_THEME_KEY } from '@/utils/constants/common'
-import { getLocalStorageItem, setLocalStorageItem } from '@/utils/helpers'
+import Spinner from '@/components/Common/Spinner'
 
 const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState('')
+  const [mounted, setMounted] = useState(false)
+  const { setTheme, resolvedTheme } = useTheme()
 
   const toggleTheme = () => {
-    if (theme === 'dark') {
-      setTheme((prevValue) => (prevValue === 'light' ? 'dark' : 'light'))
-      setLocalStorageItem(LOCAL_STORAGE_THEME_KEY, 'light')
-      document.documentElement.classList.remove('dark')
+    if (resolvedTheme === 'light') {
+      setTheme('dark')
     } else {
-      setTheme((prevValue) => (prevValue === 'dark' ? 'light' : 'dark'))
-      setLocalStorageItem(LOCAL_STORAGE_THEME_KEY, 'dark')
-      document.documentElement.classList.add('dark')
+      setTheme('light')
     }
   }
 
-  useEffect(() => {
-    if (
-      getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === 'dark' ||
-      (!(LOCAL_STORAGE_THEME_KEY in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      setTheme('dark')
-      document.documentElement.classList.add('dark')
-    } else {
-      setTheme('light')
-      document.documentElement.classList.remove('dark')
-    }
-  }, [])
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return <Spinner width={24} />
 
   return (
-    <button
-      id='theme-toggle'
-      type='button'
-      onClick={toggleTheme}
-      className='rounded-lg p-1.5 text-sm hover:bg-primary-100 focus:outline-none focus:ring-4 focus:ring-primary-200 dark:hover:bg-primary-700 dark:focus:ring-primary-500/50'>
+    <button onClick={toggleTheme} className='block'>
       <ToggleDarkIcon
-        className={clsx(`h-6 w-6 text-primary-900`, {
-          hidden: theme === 'dark',
-          block: theme === 'light',
+        width={24}
+        className={clsx(`text-primary-900`, {
+          hidden: resolvedTheme === 'dark',
+          block: resolvedTheme === 'light',
         })}
       />
       <ToggleLightIcon
-        className={clsx(`h-6 w-6 text-warning-500`, {
-          hidden: theme === 'light',
-          block: theme === 'dark',
+        width={24}
+        className={clsx(`text-warning-500`, {
+          hidden: resolvedTheme === 'light',
+          block: resolvedTheme === 'dark',
         })}
       />
     </button>
