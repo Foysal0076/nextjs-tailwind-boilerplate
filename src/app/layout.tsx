@@ -43,7 +43,7 @@ export default function RootLayout({
       />
       <body>
         <NextThemeProvider>
-          <div className='flex min-h-screen flex-col justify-between bg-neutral-0'>
+          <div className='flex min-h-screen flex-col justify-between bg-surface-50'>
             <div>
               <Navbar />
               <main>{children}</main>

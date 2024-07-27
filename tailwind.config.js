@@ -195,10 +195,24 @@ module.exports = {
           800: 'rgb(var(--colors-warning-800) / <alpha-value>)',
           900: 'rgb(var(--colors-warning-900) / <alpha-value>)',
         },
+        surface: {
+          0: 'rgb(var(--colors-surface-0) / <alpha-value>)',
+          50: 'rgb(var(--colors-surface-50) / <alpha-value>)',
+          100: 'rgb(var(--colors-surface-100) / <alpha-value>)',
+          200: 'rgb(var(--colors-surface-200) / <alpha-value>)',
+          300: 'rgb(var(--colors-surface-300) / <alpha-value>)',
+          400: 'rgb(var(--colors-surface-400) / <alpha-value>)',
+          500: 'rgb(var(--colors-surface-500) / <alpha-value>)',
+          600: 'rgb(var(--colors-surface-600) / <alpha-value>)',
+          700: 'rgb(var(--colors-surface-700) / <alpha-value>)',
+          800: 'rgb(var(--colors-surface-800) / <alpha-value>)',
+          900: 'rgb(var(--colors-surface-900) / <alpha-value>)',
+          950: 'rgb(var(--colors-surface-950) / <alpha-value>)',
+        },
       },
       borderColor: {
         // DEFAULT: 'var(--colors-neutral-50)', // this does not work
-        DEFAULT: '#c6c5c6',
+        DEFAULT: '#e5e7eb',
       },
       boxShadow: {
         xs: 'var(--box-shadow-xs)',

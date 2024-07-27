@@ -87,6 +87,10 @@ export const HomeHero = () => {
               dolores.
             </li>
           </ul>
+          <div className='mt-8' />
+          <hr className='border-slate-900/10 dark:border-slate-300/10' />
+          <div className='mt-4 h-32 w-32 rounded-lg border border-slate-900/10 bg-surface-100/50 shadow-md dark:border-slate-300/10'></div>
+          <div className='mt-4 h-32 w-32 rounded-lg border border-slate-900/10 bg-surface-100/50 shadow-md dark:border-slate-300/10'></div>
         </div>
       </div>
     </div>
