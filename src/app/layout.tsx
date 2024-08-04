@@ -3,6 +3,7 @@ import '@/styles/globals.scss'
 
 import { Inter, Rubik } from 'next/font/google'
 
+import { AuthProvider } from '@/auth/AuthProvider'
 import NextThemeProvider from '@/components/Common/NextThemeProvider'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
@@ -41,16 +42,18 @@ export default function RootLayout({
         sizes='32x32'
         href='/assets/favicons/favicon.ico'
       />
-      <body>
-        <NextThemeProvider>
-          <div className='flex min-h-screen flex-col justify-between bg-surface-50'>
-            <div>
-              <Navbar />
-              <main>{children}</main>
+      <body suppressHydrationWarning>
+        <AuthProvider>
+          <NextThemeProvider>
+            <div className='flex min-h-screen flex-col justify-between bg-surface-50'>
+              <div>
+                <Navbar />
+                <main>{children}</main>
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-        </NextThemeProvider>
+          </NextThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   )

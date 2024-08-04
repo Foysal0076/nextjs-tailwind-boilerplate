@@ -10,3 +10,12 @@ export const setLocalStorageItem = (key: string, value: any) => {
 export const removeLocalStorageItem = (key: string) => {
   localStorage.removeItem(key)
 }
+
+export const createInitials = (name: string = '', length: 1 | 2 = 2) => {
+  if (!name) return ''
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .slice(0, length)
+}
