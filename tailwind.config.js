@@ -222,6 +222,8 @@ module.exports = {
         xl: 'var(--box-shadow-xl)',
         '2xl': 'var(--box-shadow-2-xl)',
         '3xl': 'var(--box-shadow-3-xl)',
+        'top': 'var(--box-shadow-top)',
+        'bottom': 'var(--box-shadow-bottom)',
       },
       blur: {
         sm: 'var(--backgroundblur-sm-backdrop-filter)',

@@ -42,10 +42,10 @@ export default function RootLayout({
         sizes='32x32'
         href='/assets/favicons/favicon.ico'
       />
-      <body suppressHydrationWarning>
+      <body>
         <AuthProvider>
           <NextThemeProvider>
-            <div className='flex min-h-screen flex-col justify-between bg-surface-50'>
+            <div className='flex min-h-screen flex-col justify-between bg-surface-50 pt-[3.75rem] md:pt-[4.5rem]'>
               <div>
                 <Navbar />
                 <main>{children}</main>

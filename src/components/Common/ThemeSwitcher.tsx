@@ -5,7 +5,6 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 import { ToggleDarkIcon, ToggleLightIcon } from '@/components/Common/Icons'
-import Spinner from '@/components/Common/Spinner'
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false)
@@ -21,7 +20,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => setMounted(true), [])
 
-  if (!mounted) return <Spinner width={24} />
+  if (!mounted) return <div className='h-6 w-6' />
 
   return (
     <button onClick={toggleTheme} className='block'>
