@@ -130,6 +130,7 @@
     --box-shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.06),
       0px 1px 3px 0px rgba(0, 0, 0, 0.1);
     --box-shadow-xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    --box-shadow-top: 0px -4px 8px -4px rgba(0, 0, 0, 0.1);
   }
 
   .dark {
@@ -177,6 +178,7 @@
     --box-shadow-sm: 0px 1px 2px 0px rgba(71, 85, 105, 0.4),
       0px 1px 3px 0px rgba(71, 85, 105, 0.45);
     --box-shadow-xs: 0px 1px 2px 0px rgba(100, 116, 139, 0.35);
+    --box-shadow-top: 0px -4px 8px -4px rgba(71, 85, 105, 0.4);
   }
 
   * {
