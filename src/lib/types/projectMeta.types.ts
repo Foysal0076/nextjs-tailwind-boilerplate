@@ -1,4 +1,4 @@
-export type ProjectInformation = {
+export type ProjectMetaType = {
   name: string
   description: string
 }
