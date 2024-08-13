@@ -2,7 +2,7 @@
 
 import { signOut, useSession } from 'next-auth/react'
 
-import { createInitials } from '@/utils/helpers'
+import { createInitials } from '@/lib/helpers'
 
 const NavbarAuthMenu = () => {
   const { data: session, status } = useSession()
